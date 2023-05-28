@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "02b3f628-93c0-455b-878d-4c2bfd41467e",
+		"name": "teremok",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27246047",
+		"_collection_link": "https://bold-capsule-32255.postman.co/workspace/Team-Workspace~fe35e427-9273-45dd-8afa-2d44eba63414/collection/27246047-02b3f628-93c0-455b-878d-4c2bfd41467e?action=share&creator=27246047&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Блинчики",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Ожидаю получить статус ответа 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string Teremok\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Окрошка Домашняя на квасе\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Ожидаю, что ответ придёт быстрее 50ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(50);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Ожидаю, что тело ответа не пустое.\", function () {\r",
+							"    pm.response.to.have.body();\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Ожидаю, что тип содержимого ответа соответствует значению - application/json; charset=utf-8.\", function () {\r",
+							"    pm.response.to.have.header(\"content-type\", \"application/json; charset=utf-8\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://teremok.ru/api/menu/category/?id=34&city_id=17",
+					"protocol": "https",
+					"host": [
+						"teremok",
+						"ru"
+					],
+					"path": [
+						"api",
+						"menu",
+						"category",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "34"
+						},
+						{
+							"key": "city_id",
+							"value": "17"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Пельмени",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Ожидаю получить статус ответа 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string Teremok\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Пельмени двойная порция\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Ожидаю, что ответ придёт быстрее 50ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(50);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://teremok.ru/api/menu/category/?id=51&city_id=17",
+					"protocol": "https",
+					"host": [
+						"teremok",
+						"ru"
+					],
+					"path": [
+						"api",
+						"menu",
+						"category",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "51"
+						},
+						{
+							"key": "city_id",
+							"value": "17"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
